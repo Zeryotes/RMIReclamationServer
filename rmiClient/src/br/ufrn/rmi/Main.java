@@ -9,16 +9,17 @@ import java.util.Scanner;
 public class Main {
 
 	public static void main(String[] args) throws MalformedURLException, RemoteException, NotBoundException {
-		HelloServerInterface server = (HelloServerInterface) Naming.lookup("rmi://127.0.0.1:1099/HelloServer");
+		ReclamationServerInterface server = (ReclamationServerInterface) Naming.lookup("rmi://127.0.0.1:1099/ReclamationServer");
 		
 		Scanner sc = new Scanner(System.in);
 		
-		System.out.println(server.helloWorld());
+		System.out.println(server.facedeMain());
+		int option = sc.nextInt();
+		System.out.println(server.facedeOption(option));
 		
-		System.out.println("Digite seu nome: ");
-		String name = sc.nextLine();
+		option = sc.nextInt();
+		System.out.println(server.forwardingReclamation(option));
 		
-		server.hello(name);
 
 	}
 

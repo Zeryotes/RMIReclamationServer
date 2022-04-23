@@ -11,11 +11,11 @@ public class Main {
 		
 		System.setProperty("java.rmi.server.hostname", "127.0.0.1");
 		
-		HelloServerInterface server = new HelloServer();
+		ReclamationServerInterface server = new ReclamationServer();
 		
 		LocateRegistry.createRegistry(1099);
 		
-		Naming.rebind("rmi://127.0.0.1:1099/HelloServer", server);
+		Naming.rebind("rmi://127.0.0.1:1099/ReclamationServer", server);
 		
 		System.out.println("Server Started.");
 
