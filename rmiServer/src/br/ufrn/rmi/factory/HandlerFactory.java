@@ -19,7 +19,7 @@ public final class HandlerFactory {
 		case 4:
 			return new TownHallHandler();
 		default:
-			throw new Exception("Valor inv√°lido.");
+			throw new Exception("Valor inv·lido.");
 			
 		}
 	}

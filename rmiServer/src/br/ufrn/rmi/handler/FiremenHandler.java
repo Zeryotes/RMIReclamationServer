@@ -6,43 +6,35 @@ import br.ufrn.rmi.enuns.Priority;
 
 public class FiremenHandler extends ConstructHandler {
 	
-	
 	public FiremenHandler() {
-		reclamations.add(new Reclamation("IncÃªndio", Priority.URGENTE, 1));
+		reclamations.add(new Reclamation("Incêndio", Priority.URGENTE, 1));
 		reclamations.add(new Reclamation("Resgate", Priority.URGENTE, 2));
 		reclamations.add(new Reclamation("Resgate animal", Priority.MODERADA, 3));
-		reclamations.add(new Reclamation("Acidente rodoviÃ¡rio", Priority.MODERADA, 4));
-		reclamations.add(new Reclamation("Corte de Ã¡rvores com risco iminente de queda", Priority.MODERADA, 5));
-		reclamations.add(new Reclamation("Captura de animais que ofereÃ§am risco Ã  sociedade", Priority.MODERADA, 6));
-		reclamations.add(new Reclamation("InspeÃ§Ã£o nos equipamentos de seguranÃ§a", Priority.BAIXA, 7));
-		
+		reclamations.add(new Reclamation("Acidente rodoviário", Priority.MODERADA, 4));
+		reclamations.add(new Reclamation("Corte de árvores com risco iminente de queda", Priority.MODERADA, 5));
+		reclamations.add(new Reclamation("Captura de animais que ofereçam risco à sociedade", Priority.MODERADA, 6));
+		reclamations.add(new Reclamation("Inspeção nos equipamentos de segurança", Priority.BAIXA, 7));
 	}
 	
 	@Override
 	public String handleReclamation(String message) {
 		Reclamation reclamation = reclamations.stream().filter(r -> r.getDepartmentIndex() == reclamationOption).findFirst().get();
-		return "ReclamaÃ§Ã£o enviada para o deparamento de bombeiros. ReclamaÃ§Ã£o: "+toOptionString(reclamation);
+		return "Reclamação enviada para o deparamento de bombeiros. Reclamação: "+toOptionString(reclamation);
 		
 	}
 
 	@Override
 	public String showReclamations() {
-		return "Setor dos bombeiros"
-				+ "\n"
-				+ "1 - Incï¿½ndio\n"
-				+ "2 - Resgate\n"
-				+ "3 - Resgate animal\n"
-				+ "4 - Acidente rodoviï¿½rio\n"
-				+ "5 - Corte de ï¿½rvores com risco iminente de queda\n"
-				+ "6 - Captura de animais que ofereï¿½am risco ï¿½ sociedade\n"
-				+ "7 - Inspeï¿½ï¿½o nos equipamentos de seguranï¿½a\n"
-				+ "\n"
+		String strReturn = "Departamento dos bombeiros\n";
+		for (Reclamation reclamation : reclamations) {
+			strReturn += reclamation.getDepartmentIndex() + " - " + reclamation.getDescription() + "\n";
+		}
+		strReturn += "\n"
 				+ "100 - Outros\n"
 				+ "\n"
 				+ "0 - Finalizar\n"
-				+ "\n"
-				+ "Digite o nï¿½mero correspondente a sua reclamaï¿½ï¿½o: ";
+				+ "Digite o número correspondente a sua reclamação: ";
+		return strReturn;
 	}
 
-	
 }

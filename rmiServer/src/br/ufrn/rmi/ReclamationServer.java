@@ -17,9 +17,9 @@ public class ReclamationServer extends UnicastRemoteObject implements Reclamatio
 	
 	@Override
 	public String facedeMain() throws RemoteException {
-		return "Bem-vindo ao servidor de reclamaï¿½ï¿½es!\n"
+		return "Bem-vindo ao servidor de reclamações!\n"
 				+ "\n"
-				+ "Qual o setor da sua reclamaï¿½ï¿½o?\n"
+				+ "Qual o setor da sua reclamação?\n"
 				+ "1 - Policial\n"
 				+ "2 - Bombeiros\n"
 				+ "3 - Pronto-socorro\n"
@@ -27,7 +27,7 @@ public class ReclamationServer extends UnicastRemoteObject implements Reclamatio
 				+ "\n"
 				+ "0 - Finalizar\n"
 				+ "\n"
-				+ "Digite o nï¿½mero correspondente ao setor desejado: ";
+				+ "Digite o número correspondente ao setor desejado: ";
 	}
 
 
@@ -37,7 +37,7 @@ public class ReclamationServer extends UnicastRemoteObject implements Reclamatio
 			handler = HandlerFactory.createHandler(option);
 			return handler.showReclamations();
 		} catch (Exception e) {
-			return "Valor invÃ¡lido";
+			return "Valor inválido";
 		}
 		
 	}

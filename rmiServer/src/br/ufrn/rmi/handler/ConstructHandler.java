@@ -30,5 +30,4 @@ public abstract class ConstructHandler implements HandlerInterface {
 		return String.format("%d - %s\n", reclamation.getDepartmentIndex(), reclamation.getDescription());
 	}
 	
-	
 }
