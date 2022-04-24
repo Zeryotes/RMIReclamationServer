@@ -7,13 +7,13 @@ import br.ufrn.rmi.enuns.Priority;
 public class FiremenHandler extends ConstructHandler {
 	
 	public FiremenHandler() {
-		reclamations.add(new Reclamation("Incêndio", Priority.URGENTE, 1));
-		reclamations.add(new Reclamation("Resgate", Priority.URGENTE, 2));
-		reclamations.add(new Reclamation("Resgate animal", Priority.MODERADA, 3));
-		reclamations.add(new Reclamation("Acidente rodoviário", Priority.MODERADA, 4));
-		reclamations.add(new Reclamation("Corte de árvores com risco iminente de queda", Priority.MODERADA, 5));
-		reclamations.add(new Reclamation("Captura de animais que ofereçam risco à sociedade", Priority.MODERADA, 6));
-		reclamations.add(new Reclamation("Inspeção nos equipamentos de segurança", Priority.BAIXA, 7));
+		reclamations.add(new Reclamation("Incêndio", Priority.HIGH, 1));
+		reclamations.add(new Reclamation("Resgate", Priority.HIGH, 2));
+		reclamations.add(new Reclamation("Resgate animal", Priority.MEDIUM, 3));
+		reclamations.add(new Reclamation("Acidente rodoviário", Priority.MEDIUM, 4));
+		reclamations.add(new Reclamation("Corte de árvores com risco iminente de queda", Priority.MEDIUM, 5));
+		reclamations.add(new Reclamation("Captura de animais que ofereçam risco à sociedade", Priority.MEDIUM, 6));
+		reclamations.add(new Reclamation("Inspeção nos equipamentos de segurança", Priority.LOW, 7));
 	}
 	
 	@Override

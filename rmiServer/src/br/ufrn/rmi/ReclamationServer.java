@@ -50,7 +50,7 @@ public class ReclamationServer extends UnicastRemoteObject implements Reclamatio
 
 	@Override
 	public String showUserClassificationText() throws RemoteException {
-		return "Classifique o grau de severidade para essa ocorrÃªncia, onde 1 Ã© o valor mÃ­nimo e 5 o valor mÃ¡ximo: ";
+		return "Classifique o grau de severidade para essa ocorrência, onde 1 é o valor mínimo e 5 o valor máximo: ";
 	}
 
 	@Override

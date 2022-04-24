@@ -6,20 +6,20 @@ import br.ufrn.rmi.enuns.Priority;
 public class AmbulanceHandler extends ConstructHandler {
 
 	public AmbulanceHandler() {
-		reclamations.add(new Reclamation("Infarto", Priority.URGENTE, 1));
-		reclamations.add(new Reclamation("Acidente de transito", Priority.URGENTE, 2));
-		reclamations.add(new Reclamation("Acidente com animais pesonhentos", Priority.URGENTE,3));
-		reclamations.add(new Reclamation("Choques Elétricos", Priority.URGENTE, 4));
-		reclamations.add(new Reclamation("Queimaduras", Priority.URGENTE, 5));
-		reclamations.add(new Reclamation("Cortes e Dilacerações", Priority.URGENTE, 6));
-		reclamations.add(new Reclamation("Febre", Priority.URGENTE, 7));
-		reclamations.add(new Reclamation("Overdose", Priority.URGENTE, 8));
-		reclamations.add(new Reclamation("Crise Alérgica", Priority.MODERADA, 9));
-		reclamations.add(new Reclamation("Fratura", Priority.MODERADA, 10));
-		reclamations.add(new Reclamation("Desmaio", Priority.MODERADA, 11));
-		reclamations.add(new Reclamation("Enjôo", Priority.BAIXA, 12));
-		reclamations.add(new Reclamation("Enxaqueca", Priority.BAIXA, 13));
-		reclamations.add(new Reclamation("Intoxicação alimentar", Priority.BAIXA, 14));
+		reclamations.add(new Reclamation("Infarto", Priority.HIGH, 1));
+		reclamations.add(new Reclamation("Acidente de transito", Priority.HIGH, 2));
+		reclamations.add(new Reclamation("Acidente com animais pesonhentos", Priority.HIGH,3));
+		reclamations.add(new Reclamation("Choques Elétricos", Priority.HIGH, 4));
+		reclamations.add(new Reclamation("Queimaduras", Priority.HIGH, 5));
+		reclamations.add(new Reclamation("Cortes e Dilacerações", Priority.HIGH, 6));
+		reclamations.add(new Reclamation("Febre", Priority.HIGH, 7));
+		reclamations.add(new Reclamation("Overdose", Priority.HIGH, 8));
+		reclamations.add(new Reclamation("Crise Alérgica", Priority.MEDIUM, 9));
+		reclamations.add(new Reclamation("Fratura", Priority.MEDIUM, 10));
+		reclamations.add(new Reclamation("Desmaio", Priority.MEDIUM, 11));
+		reclamations.add(new Reclamation("Enjôo", Priority.LOW, 12));
+		reclamations.add(new Reclamation("Enxaqueca", Priority.LOW, 13));
+		reclamations.add(new Reclamation("Intoxicação alimentar", Priority.LOW, 14));
 	}
 	
 	@Override
