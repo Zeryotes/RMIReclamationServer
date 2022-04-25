@@ -10,6 +10,8 @@ public final class HandlerFactory {
 
 	public static ConstructHandler createHandler(int index) throws Exception {
 		switch (index) {
+		case 0: 
+			throw new Exception("FINALIZAR");
 		case 1:
 			return new PoliceHandler();
 		case 2:
@@ -19,7 +21,7 @@ public final class HandlerFactory {
 		case 4:
 			return new TownHallHandler();
 		default:
-			throw new Exception("Valor inválido.");
+			throw new Exception("ERRO");
 			
 		}
 	}

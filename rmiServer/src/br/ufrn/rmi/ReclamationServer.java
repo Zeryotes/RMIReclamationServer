@@ -1,5 +1,6 @@
 package br.ufrn.rmi;
 
+import java.io.InvalidObjectException;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
@@ -17,9 +18,9 @@ public class ReclamationServer extends UnicastRemoteObject implements Reclamatio
 	
 	@Override
 	public String facedeMain() throws RemoteException {
-		return "Bem-vindo ao servidor de reclamações!\n"
+		return "Bem-vindo ao servidor de reclamaï¿½ï¿½es!\n"
 				+ "\n"
-				+ "Qual o setor da sua reclamação?\n"
+				+ "Qual o setor da sua reclamaï¿½ï¿½o?\n"
 				+ "1 - Policial\n"
 				+ "2 - Bombeiros\n"
 				+ "3 - Pronto-socorro\n"
@@ -27,7 +28,7 @@ public class ReclamationServer extends UnicastRemoteObject implements Reclamatio
 				+ "\n"
 				+ "0 - Finalizar\n"
 				+ "\n"
-				+ "Digite o número correspondente ao setor desejado: ";
+				+ "Digite o nï¿½mero correspondente ao setor desejado: ";
 	}
 
 
@@ -37,7 +38,7 @@ public class ReclamationServer extends UnicastRemoteObject implements Reclamatio
 			handler = HandlerFactory.createHandler(option);
 			return handler.showReclamations();
 		} catch (Exception e) {
-			return "Valor inválido";
+			return e.getMessage();
 		}
 		
 	}
@@ -50,17 +51,27 @@ public class ReclamationServer extends UnicastRemoteObject implements Reclamatio
 
 	@Override
 	public String showUserClassificationText() throws RemoteException {
-		return "Classifique o grau de severidade para essa ocorrÃªncia, onde 1 Ã© o valor mÃ­nimo e 5 o valor mÃ¡ximo: ";
+		return "Classifique o grau de severidade para essa ocorrï¿½ncia, onde 1 ï¿½ o valor mï¿½nimo e 5 o valor mï¿½ximo: ";
 	}
 
 	@Override
-	public void setReclamationOption(int option) throws RemoteException {
-		handler.setReclamationOption(option);
+	public String setReclamationOption(int option) throws RemoteException {
+		try {
+			return handler.setReclamationOption(option);
+		} catch (Exception e) {
+			return e.getMessage();
+		}
+		
 	}
 
 	@Override
-	public void setReclamationClassification(int option) throws RemoteException {
-		handler.setReclamationClassification(option);
+	public String setReclamationClassification(int option) throws RemoteException, InvalidObjectException {
+		try {
+			return handler.setReclamationClassification(option);
+		} catch (Exception e) {
+			return e.getMessage();
+		}
+		
 	}
 
 }
