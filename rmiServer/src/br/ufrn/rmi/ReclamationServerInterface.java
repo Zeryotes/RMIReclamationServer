@@ -1,5 +1,6 @@
 package br.ufrn.rmi;
 
+import java.io.InvalidObjectException;
 import java.rmi.Remote;
 import java.rmi.RemoteException;		
 
@@ -9,7 +10,7 @@ public interface ReclamationServerInterface extends Remote{
 	public String facedeOption(int option)throws RemoteException;
 	public String forwardingReclamation(int option)throws RemoteException;
 	
-	public void setReclamationOption(int option) throws RemoteException;
-	public void setReclamationClassification(int option)throws RemoteException;
+	public String setReclamationOption(int option) throws RemoteException;
+	public String setReclamationClassification(int option)throws RemoteException, InvalidObjectException;
 	public String showUserClassificationText() throws RemoteException;
 }

@@ -1,14 +1,16 @@
 package br.ufrn.rmi;
 
-import java.net.MalformedURLException;
 import java.rmi.Naming;
 import java.rmi.RemoteException;
-import java.rmi.NotBoundException;
 import java.util.Scanner;
+
+import br.ufrn.rmi.exception.EndProgramException;
 
 public class Main {
 
-	public static void main(String[] args) throws MalformedURLException, RemoteException, NotBoundException {
+	private static final String VALOR_INVALIDO = "ERRO";
+	
+	public static void main(String[] args) throws Exception {
 		ReclamationServerInterface server = (ReclamationServerInterface) Naming.lookup("rmi://127.0.0.1:1099/ReclamationServer");
 		
 		Scanner sc = new Scanner(System.in);
@@ -18,7 +20,7 @@ public class Main {
 			showDepartments(server);
 			
 			int option = sc.nextInt();
-			showDepartmentReclamations(server, option);
+			showDepartmentReclamations(server, option, sc);
 			setReclamation(server, sc, option);
 			
 			showReclamationClassificationText(server);
@@ -38,8 +40,17 @@ public class Main {
 		System.out.println(server.facedeMain());
 	}
 	
-	public static void showDepartmentReclamations(ReclamationServerInterface server, int option) throws RemoteException {
-		System.out.println(server.facedeOption(option));
+	public static void showDepartmentReclamations(ReclamationServerInterface server, int option, Scanner sc) throws EndProgramException, RemoteException {
+		String message = server.facedeOption(option);
+		validateEndProgramMessage(message);
+		if (message.equals(VALOR_INVALIDO)) {
+			System.out.println("\nOpção escolhida inválida. Por favor, escolha outro valor: ");
+			option = sc.nextInt();
+			showDepartmentReclamations(server, option, sc);
+		}
+		
+		if (!message.equals(VALOR_INVALIDO))
+			System.out.println(message);
 	}
 	
 	public static void showReclamationClassificationText(ReclamationServerInterface server) throws RemoteException  {
@@ -50,13 +61,29 @@ public class Main {
 		option = sc.nextInt();
 	}
 	
-	public static void setReclamation(ReclamationServerInterface server, Scanner sc, int option) throws RemoteException {
-		receiveInput(sc, option);
-		server.setReclamationOption(option);
+	public static void setReclamation(ReclamationServerInterface server, Scanner sc, int option) throws EndProgramException, RemoteException {
+		option = sc.nextInt();
+		String result = server.setReclamationOption(option);
+		validateEndProgramMessage(result);
+		if (result.equals(VALOR_INVALIDO)) {
+			System.out.println("\nOpção escolhida inválida. Por favor, escolha outro valor: ");
+			setReclamation(server, sc, option);
+		}
 	}
 
 	public static void setReclamationClassification(ReclamationServerInterface server, Scanner sc, int option) throws RemoteException {
-		receiveInput(sc, option);
-		server.setReclamationClassification(option);
+		option = sc.nextInt();
+		String result = server.setReclamationClassification(option);
+		if (result.equals(VALOR_INVALIDO)) {
+			System.out.println("\nOpção escolhida inválida. Por favor, escolha outro valor: ");
+			setReclamationClassification(server, sc, option);
+		}
 	}
+	
+	public static void validateEndProgramMessage(String message) throws EndProgramException {
+		if (message.equals("FINALIZAR")) {
+			throw new EndProgramException("Finalizando programa...");
+		}
+	}
+	
 }
