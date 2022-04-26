@@ -17,7 +17,7 @@ public class Main {
 		
 		Naming.rebind("rmi://127.0.0.1:1099/ReclamationServer", server);
 		
-		System.out.println("Server Started.");
+		System.out.println("Servidor de Reclamações inicializado.");
 
 	}
 

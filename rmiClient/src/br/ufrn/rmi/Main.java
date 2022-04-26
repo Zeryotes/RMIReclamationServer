@@ -33,15 +33,15 @@ public class Main {
 	}
 	
 	public static void showSeparator() {
-		System.out.println("\n-----------------------------------------\n");
+		System.out.println("\n----------------------------------------------------------\n");
 	}
 	
 	public static void showDepartments(ReclamationServerInterface server) throws RemoteException {
-		System.out.println(server.facedeMain());
+		System.out.println(server.getDepartments());
 	}
 	
 	public static void showDepartmentReclamations(ReclamationServerInterface server, int option, Scanner sc) throws EndProgramException, RemoteException {
-		String message = server.facedeOption(option);
+		String message = server.getReclamationsByDepartment(option);
 		validateEndProgramMessage(message);
 		if (message.equals(VALOR_INVALIDO)) {
 			System.out.println("\nOpção escolhida inválida. Por favor, escolha outro valor: ");

@@ -6,8 +6,8 @@ import java.rmi.RemoteException;
 
 public interface ReclamationServerInterface extends Remote{
 	
-	public String facedeMain() throws RemoteException;
-	public String facedeOption(int option)throws RemoteException;
+	public String getDepartments() throws RemoteException;
+	public String getReclamationsByDepartment(int option)throws RemoteException;
 	public String forwardingReclamation(int option)throws RemoteException;
 	
 	public String setReclamationOption(int option) throws RemoteException;

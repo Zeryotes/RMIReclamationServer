@@ -24,7 +24,7 @@ public abstract class ConstructHandler implements HandlerInterface {
 		if (reclamationOption == 0)
 			throw new InvalidOptionException(FINALIZAR);
 		else if (reclamationOption < 0 || reclamationOption > reclamations.size()) {
-			throw new InvalidOptionException("ERRO");
+			throw new InvalidOptionException(ERRO);
 		}
 		this.reclamationOption = reclamationOption;
 		return SUCESSO;
@@ -51,12 +51,12 @@ public abstract class ConstructHandler implements HandlerInterface {
 				+ "100 - Outros\n"
 				+ "\n"
 				+ "0 - Finalizar\n"
-				+ "Digite o n�mero correspondente a sua reclama��o: ";
+				+ "Digite o número correspondente a sua reclamação: ";
 		return strReturn;
 	}
 	
 	public String toOptionString(Reclamation reclamation) {
-		return String.format("%s - %s - %d\n", reclamation.getDescription(), reclamation.getPriority().name(), reclamationClassification);
+		return String.format("Tipo de ocorrência:  %s \nPrioridade: %s\nGrau de severidade: %d\n", reclamation.getDescription(), reclamation.getPriority().name(), reclamationClassification);
 	}
 	
 }
